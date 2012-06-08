@@ -103,8 +103,8 @@ PRODUCT_PACKAGES += \
 
 #Misc
 PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory \
-    Torch
+    com.android.future.usb.accessory #\
+#    Torch
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.tethering.kb_disconnect=1
