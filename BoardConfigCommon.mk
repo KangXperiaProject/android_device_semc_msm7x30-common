@@ -24,7 +24,8 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_ARCH_VARIANT := armv7-a-neon
 ARCH_ARM_HAVE_TLS_REGISTER := true
 
-BOARD_USES_GENERIC_AUDIO := false
+BOARD_USES_QCOM_AUDIO_VOIPMUTE := true
+BOARD_USES_QCOM_AUDIO_RESETALL := true
 BOARD_HAVE_BLUETOOTH := true
 
 BOARD_USES_QCOM_HARDWARE := true
@@ -42,6 +43,7 @@ TARGET_FORCE_CPU_UPLOAD := true
 DYNAMIC_SHARED_LIBV8SO := true
 COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE -DQCOM_ROTATOR_KERNEL_FORMATS
 BOARD_EGL_CFG := device/semc/msm7x30-common/prebuilt/egl.cfg
+ENABLE_WEBGL := true
 
 BUILD_SEMC_SENSORS := true
 
@@ -68,5 +70,3 @@ TARGET_BOOTANIMATION_PRELOAD := true
 
 # A custom ota package maker for a device without an exposed boot partition
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/semc/msm7x30-common/releasetools/semc_ota_from_target_files
-
-
