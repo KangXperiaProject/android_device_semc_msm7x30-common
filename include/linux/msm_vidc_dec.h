@@ -205,6 +205,12 @@ struct vdec_ioctl_msg {
 #define VDEC_IOCTL_GET_DISABLE_DMX_SUPPORT \
 	_IOR(VDEC_IOCTL_MAGIC, 37, struct vdec_ioctl_msg)
 
+#define VEN_IOCTL_GET_EXTRADATA \
+	_IOR(VEN_IOCTLBASE_ENC, 49, struct venc_ioctl_msg)
+
+#define VEN_IOCTL_SET_SLICE_DELIVERY_MODE \
+	_IO(VEN_IOCTLBASE_ENC, 50)
+
 enum vdec_picture {
 	PICTURE_TYPE_I,
 	PICTURE_TYPE_P,
@@ -513,9 +519,9 @@ struct vdec_framesize {
 };
 
 struct vdec_aspectratioinfo {
-  uint32_t aspect_ratio;
-  uint32_t par_width;
-  uint32_t par_height;
+ uint32_t aspect_ratio;
+ uint32_t par_width;
+ uint32_t par_height;
 };
 
 struct vdec_output_frameinfo {

@@ -11,6 +11,8 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+USE_CAMERA_STUB := true
+
 TARGET_SPECIFIC_HEADER_PATH := device/semc/msm7x30-common/include
 
 TARGET_NO_BOOTLOADER := true
@@ -34,15 +36,14 @@ BOARD_USES_QCOM_LIBS := true
 BOARD_USES_QCOM_LIBRPC := true
 USE_OPENGL_RENDERER := true
 TARGET_USES_C2D_COMPOSITION := true
-TARGET_USES_SF_BYPASS := false
-TARGET_HAVE_BYPASS := false
-TARGET_USES_OVERLAY := true
-TARGET_GRALLOC_USES_ASHMEM := true
-TARGET_USES_GENLOCK := true
+TARGET_NO_HW_VSYNC := true
+COMMON_GLOBAL_CFLAGS += -DQCOM_HARDWARE -DSEMC_RGBA_8888_OFFSET
+COMMON_GLOBAL_CFLAGS += -DICS_CAMERA_BLOB -DQCOM_NO_SECURE_PLAYBACK
+BOARD_EGL_CFG := device/semc/msm7x30-common/prebuilt/egl.cfg
+
+# Webkit
 TARGET_FORCE_CPU_UPLOAD := true
 DYNAMIC_SHARED_LIBV8SO := true
-COMMON_GLOBAL_CFLAGS += -DREFRESH_RATE=60 -DQCOM_HARDWARE -DICS_AUDIO_BLOB -DICS_CAMERA_BLOB -DQCOM_ICS_COMPAT
-BOARD_EGL_CFG := device/semc/msm7x30-common/prebuilt/egl.cfg
 ENABLE_WEBGL := true
 
 BUILD_SEMC_SENSORS := true
@@ -56,7 +57,6 @@ TARGET_RECOVERY_PRE_COMMAND := "touch /cache/recovery/boot;sync;"
 BOARD_HAS_SMALL_RECOVERY := true
 BOARD_HAS_NO_MISC_PARTITION := true
 BOARD_USES_RECOVERY_CHARGEMODE := false
-BOARD_CUSTOM_GRAPHICS := ../../../device/semc/msm7x30-common/recovery/graphics.c
 BOARD_CUSTOM_RECOVERY_KEYMAPPING := ../../device/semc/msm7x30-common/recovery/recovery_keys.c
 BOARD_UMS_LUNFILE := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
 TARGET_USE_CUSTOM_LUN_FILE_PATH := "/sys/devices/platform/msm_hsusb/gadget/lun0/file"
@@ -67,6 +67,7 @@ BOARD_KERNEL_BASE := 0x00200000
 BOARD_RECOVERY_BASE := 0x00200000
 
 TARGET_BOOTANIMATION_PRELOAD := true
+TARGET_BOOTANIMATION_TEXTURE_CACHE := true
 
 # A custom ota package maker for a device without an exposed boot partition
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/semc/msm7x30-common/releasetools/semc_ota_from_target_files
