@@ -70,3 +70,5 @@ TARGET_BOOTANIMATION_PRELOAD := true
 
 # A custom ota package maker for a device without an exposed boot partition
 TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := device/semc/msm7x30-common/releasetools/semc_ota_from_target_files
+
+TARGET_NO_HW_VSYNC := true
