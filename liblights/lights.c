@@ -152,18 +152,40 @@ static int set_light_buttons (struct light_device_t *dev, struct light_state_t c
 	return 0;
 }
 
+static int set_light_keyboard(struct light_device_t* dev, struct light_state_t const* state) {
+	int err = 0;
+	int on = is_lit(state);
+	pthread_mutex_lock(&g_lock);
+	err = write_int(KEYBOARD_BACKLIGHT_FILE, on?255:0);
+	pthread_mutex_unlock(&g_lock);
+	return err;
+}
+
 static void set_shared_light_locked (struct light_device_t *dev, struct light_state_t *state) {
 	int r, g, b;
 	int err = 0;
+	int delayOn,delayOff;
 
 	r = (state->color >> 16) & 0xFF;
 	g = (state->color >> 8) & 0xFF;
 	b = (state->color) & 0xFF;
 
+	delayOn = state->flashOnMS;
+	delayOff = state->flashOffMS;
+
 	if (state->flashMode != LIGHT_FLASH_NONE) {
 		err = write_string (RED_LED_FILE_TRIGGER, "timer");
 		err = write_string (GREEN_LED_FILE_TRIGGER, "timer");
 		err = write_string (BLUE_LED_FILE_TRIGGER, "timer");
+
+		err = write_int (RED_LED_FILE_DELAYON, delayOn);
+		err = write_int (GREEN_LED_FILE_DELAYON, delayOn);
+		err = write_int (BLUE_LED_FILE_DELAYON, delayOn);
+
+		err = write_int (RED_LED_FILE_DELAYOFF, delayOff);
+		err = write_int (GREEN_LED_FILE_DELAYOFF, delayOff);
+		err = write_int (BLUE_LED_FILE_DELAYOFF, delayOff);
+
 	} else {
 		err = write_string (RED_LED_FILE_TRIGGER, "none");
 		err = write_string (GREEN_LED_FILE_TRIGGER, "none");
@@ -219,6 +241,9 @@ static int open_lights (const struct hw_module_t* module, char const* name,
 
 	if (0 == strcmp(LIGHT_ID_BACKLIGHT, name)) {
 		set_light = set_light_backlight;
+	}
+	else if (0 == strcmp(LIGHT_ID_KEYBOARD, name)) {
+		set_light = set_light_keyboard;
 	}
 	else if (0 == strcmp(LIGHT_ID_BUTTONS, name)) {
 		set_light = set_light_buttons;
