@@ -44,6 +44,7 @@ PRODUCT_COPY_FILES += \
     device/semc/msm7x30-common/prebuilt/media_codecs.xml:system/etc/media_codecs.xml \
     device/semc/msm7x30-common/prebuilt/audio_policy.conf:system/etc/audio_policy.conf \
     device/semc/msm7x30-common/prebuilt/10hostapconf:system/etc/init.d/10hostapconf \
+    device/semc/msm7x30-common/prebuilt/10dhcpcd:system/etc/init.d/10dhcpcd \
     device/semc/msm7x30-common/prebuilt/ueventd.semc.rc:root/ueventd.semc.rc \
     device/semc/msm7x30-common/prebuilt/vold.fstab:system/etc/vold.fstab \
     device/semc/msm7x30-common/prebuilt/fstab:root/fstab \
@@ -104,7 +105,6 @@ PRODUCT_PACKAGES += \
 # QCOM OMX
 PRODUCT_PACKAGES += \
     libstagefrighthw \
-    libI420colorconvert \
     libOmxCore \
     libOmxVdec \
     libOmxVenc \
@@ -155,6 +155,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mass_storage \
     debug.camcorder.disablemeta=1
 
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    ro.hardware.respect_als=true
 
 #    debug.mdpcomp.maxlayer=3 \
 
