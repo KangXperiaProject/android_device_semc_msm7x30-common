@@ -58,7 +58,6 @@ PRODUCT_COPY_FILES += \
 
 #Audio
 PRODUCT_PACKAGES += \
-    audio.usb.default \
     audio.a2dp.default \
     audio.primary.msm7x30 \
     audio_policy.msm7x30
@@ -69,7 +68,6 @@ PRODUCT_PACKAGES += \
     copybit.msm7x30 \
     hwcomposer.msm7x30 \
     libgenlock \
-    libQcomUI \
     libtilerenderer \
     libmemalloc \
     liboverlay
