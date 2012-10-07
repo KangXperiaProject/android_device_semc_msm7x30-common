@@ -95,10 +95,12 @@ PRODUCT_PACKAGES += \
     VisualizationWallpapers \
     librs_jni
 
-#Misc
-PRODUCT_PACKAGES += \
-    com.android.future.usb.accessory #\
 #    Torch
+PRODUCT_PACKAGES += \
+    com.android.future.usb.accessory \
+    LegacyCamera \
+    Torch
+
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.tethering.kb_disconnect=1
