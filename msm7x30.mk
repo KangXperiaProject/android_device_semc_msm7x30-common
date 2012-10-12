@@ -54,7 +54,8 @@ PRODUCT_COPY_FILES += \
     device/semc/msm7x30-common/prebuilt/fstab:root/fstab \
     device/semc/msm7x30-common/prebuilt/fstab.semc:root/fstab.semc \
     device/semc/msm7x30-common/prebuilt/bootrec:root/sbin/bootrec \
-    device/semc/msm7x30-common/prebuilt/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh
+    device/semc/msm7x30-common/prebuilt/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
+    device/semc/msm7x30-common/prebuilt/nandroid-md5.sh:root/sbin/nandroid-md5.sh
 
 #Audio
 PRODUCT_PACKAGES += \
