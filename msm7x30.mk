@@ -43,7 +43,6 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_COPY_FILES += \
     device/semc/msm7x30-common/prebuilt/fillers:root/fillers \
-    device/semc/msm7x30-common/prebuilt/filler:root/filler \
     device/semc/msm7x30-common/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
     device/semc/msm7x30-common/prebuilt/media_codecs.xml:system/etc/media_codecs.xml \
     device/semc/msm7x30-common/prebuilt/audio_policy.conf:system/etc/audio_policy.conf \
@@ -56,6 +55,8 @@ PRODUCT_COPY_FILES += \
     device/semc/msm7x30-common/prebuilt/bootrec:root/sbin/bootrec \
     device/semc/msm7x30-common/prebuilt/postrecoveryboot.sh:root/sbin/postrecoveryboot.sh \
     device/semc/msm7x30-common/prebuilt/nandroid-md5.sh:root/sbin/nandroid-md5.sh
+
+#    device/semc/msm7x30-common/prebuilt/fillers:root/filler \
 
 #Audio
 PRODUCT_PACKAGES += \
@@ -136,8 +137,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
     debug.camcorder.disablemeta=1
 
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.hardware.respect_als=true
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    ro.hardware.respect_als=true
+
 
 #    debug.mdpcomp.maxlayer=3 \
 
