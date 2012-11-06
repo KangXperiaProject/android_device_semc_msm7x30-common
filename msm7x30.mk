@@ -59,9 +59,6 @@ PRODUCT_COPY_FILES += \
 
 #    device/semc/msm7x30-common/prebuilt/fillers:root/filler \
 
-# Compcache
-PRODUCT_COPY_FILES += \
-    device/semc/msm7x30-common/prebuilt/init.cm.rc:root/init.cm.rc
 
 #Audio
 PRODUCT_PACKAGES += \
