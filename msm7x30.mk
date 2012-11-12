@@ -42,7 +42,7 @@ PRODUCT_COPY_FILES += \
 
 
 PRODUCT_COPY_FILES += \
-    device/semc/msm7x30-common/prebuilt/fillers:root/fillers \
+    device/semc/msm7x30-common/prebuilt/fillers:root/filler \
     device/semc/msm7x30-common/prebuilt/media_profiles.xml:system/etc/media_profiles.xml \
     device/semc/msm7x30-common/prebuilt/media_codecs.xml:system/etc/media_codecs.xml \
     device/semc/msm7x30-common/prebuilt/audio_policy.conf:system/etc/audio_policy.conf \
@@ -57,7 +57,7 @@ PRODUCT_COPY_FILES += \
     device/semc/msm7x30-common/prebuilt/nandroid-md5.sh:root/sbin/nandroid-md5.sh
 
 
-#    device/semc/msm7x30-common/prebuilt/fillers:root/filler \
+#    device/semc/msm7x30-common/prebuilt/fillers:root/fillers \
 
 
 #Audio
