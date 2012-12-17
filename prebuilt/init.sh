@@ -57,12 +57,14 @@ then
 	busybox echo 255 > ${BOOTREC_LED_BLUE}
 	# recovery ramdisk
 	load_image=/sbin/ramdisk-recovery.cpio
+	echo 0 > /sys/module/msm_fb/parameters/align_buffer
 else
 	busybox echo 'ANDROID BOOT' >>boot.txt
 	# poweroff LED
 	busybox echo 0 > ${BOOTREC_LED_RED}
 	busybox echo 0 > ${BOOTREC_LED_GREEN}
 	busybox echo 0 > ${BOOTREC_LED_BLUE}
+	echo 1 > /sys/module/msm_fb/parameters/align_buffer
 fi
 
 # kill the keycheck process
