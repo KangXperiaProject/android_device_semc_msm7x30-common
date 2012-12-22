@@ -20,7 +20,7 @@ busybox mkdir -m 755 -p /sys
 
 # create device nodes
 busybox mknod -m 600 /dev/block/mmcblk0 b 179 0
-#busybox mknod -m 600 ${BOOTREC_CACHE_NODE}
+busybox mknod -m 600 ${BOOTREC_CACHE_NODE}
 busybox mknod -m 600 ${BOOTREC_EVENT_NODE}
 busybox mknod -m 666 /dev/null c 1 3
 
